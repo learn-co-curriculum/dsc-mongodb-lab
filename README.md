@@ -5,6 +5,11 @@
 
 In this lesson, we'll get some hands-on experience with MongoDB!
 
+## Objectives
+You will be able to:
+-  Use MongoDB, a popular NoSQL database
+-  Create, Read, Update, and Delete Information in MongoDB
+
 ## Getting Started
 
 To begin this lab, make sure that you start up the mongoDB server in your terminal first!
@@ -96,7 +101,7 @@ for item in query_1:
     {'_id': ObjectId('5cab91e1f1210d35c8dbfd61'), 'Name': 'Adam Enbar', 'Email': 'adam@theflatironschool.com'}
     {'_id': ObjectId('5cab91e1f1210d35c8dbfd62'), 'Name': 'Avi Flombaum', 'Email': 'avi@theflatironschool.com'}
     {'_id': ObjectId('5cab91e1f1210d35c8dbfd63'), 'Name': 'Steven S.', 'Email': 'steven.s@gmail.net'}
-    
+
 
 Great! Now, let's write a query that gets an individual record based on a stored key-value pair a document contains. 
 
@@ -110,7 +115,7 @@ for item in query_2:
 ```
 
     {'_id': ObjectId('5cab91e1f1210d35c8dbfd5f'), 'Name': 'John Smith', 'Email': 'j.smith@thesmiths.com', 'Mailing_Address': '123 mulberry lane', 'Balance': 0.0, 'Notes': 'Called technical support, issue not yet resolved.'}
-    
+
 
 Great! Now, write a query to get the names, email addresses, and balances for customers that have a balance greater than 0. Use a modifier to do this. 
 
@@ -125,7 +130,7 @@ for item in query_3:
 
     {'_id': ObjectId('5cab91e1f1210d35c8dbfd60'), 'Name': 'Jane Smith', 'Email': 'jane_smith@thesmiths.com', 'Balance': 25.0}
     {'_id': ObjectId('5cab91e1f1210d35c8dbfd61'), 'Name': 'Adam Enbar', 'Email': 'adam@theflatironschool.com', 'Balance': 14.99}
-    
+
 
 ## Updating a Record
 
@@ -155,7 +160,7 @@ for item in query_4:
 ```
 
     {'_id': ObjectId('5cab91e1f1210d35c8dbfd5f'), 'Name': 'John Smith', 'Email': 'j.smith@thesmiths.com', 'Mailing_Address': '367 55th St., apt 2A', 'Balance': 0.0, 'Notes': 'Called technical support, issue not yet resolved.'}
-    
+
 
 Now, let's assume that we want to add birthdays for each customer record. Consider the following table:
 
