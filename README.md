@@ -12,12 +12,17 @@ You will be able to:
 
 ## Getting Started
 
-To begin this lab, make sure that you start up the mongoDB server in your terminal first!
+To begin this lab, make sure that you start up the mongoDB server in your terminal first! **You must do this lab locally on your machine, not in Learn.**
 
 
 ## Connecting to the MongoDB Database
 
 In the cell below, import the appropriate library and connect to the mongoDB server. Create a new database called `'lab_db'`.
+
+
+```python
+
+```
 
 ## Creating a Collection
 
@@ -60,6 +65,11 @@ insertion_results = None
 ```
 
 Now, access the appropriate attribute from the results object returned from the insertion to see the unique IDs for each record inserted, so that we can confirm each were inserted correctly. 
+
+
+```python
+
+```
 
 ## Querying and Filtering
 
@@ -142,6 +152,11 @@ update_birthdays(names_list, birthdays_list)
 ```
 
 Now, write a query to check your work and see that the birthdays were added correctly.
+
+
+```python
+
+```
 
 Great! It looks like the birthdays have been successfully added to every record correctly!
 
