@@ -12,7 +12,7 @@ You will be able to:
 
 ## Getting Started
 
-To begin this lab, make sure that you start up the mongoDB server in your terminal first!
+To begin this lab, make sure that you start up the mongoDB server in your terminal first! **You must do this lab locally on your computer, not in Learn.**
 
 
 ## Connecting to the MongoDB Database
