@@ -21,11 +21,6 @@ In the cell below, import the appropriate library and connect to the mongoDB ser
 
 
 ```python
-
-```
-
-
-```python
 # __SOLUTION__ 
 import pymongo
 
@@ -94,11 +89,6 @@ insertion_results = mycollection.insert_many(all_records)
 ```
 
 Now, access the appropriate attribute from the results object returned from the insertion to see the unique IDs for each record inserted, so that we can confirm each were inserted correctly. 
-
-
-```python
-
-```
 
 
 ```python
@@ -187,7 +177,7 @@ for item in query_3:
 
 ## Updating a Record
 
-Now, let's update some records. In the cell below. set the mailing address for Steven S. to `'367 55th St., apt 2A'`.
+Now, let's update some records. In the cell below. set the mailing address for John Smith to `'367 55th St., apt 2A'`.
 
 
 ```python
@@ -280,11 +270,6 @@ update_birthdays(names_list, birthdays_list)
 ```
 
 Now, write a query to check your work and see that the birthdays were added correctly.
-
-
-```python
-
-```
 
 
 ```python
