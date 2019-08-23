@@ -19,11 +19,6 @@ To begin this lab, make sure that you start up the mongoDB server in your termin
 
 In the cell below, import the appropriate library and connect to the mongoDB server. Create a new database called `'lab_db'`.
 
-
-```python
-
-```
-
 ## Creating a Collection
 
 Now, create a collection called `'lab_collection'` inside `'lab_db'`.
@@ -65,11 +60,6 @@ insertion_results = None
 ```
 
 Now, access the appropriate attribute from the results object returned from the insertion to see the unique IDs for each record inserted, so that we can confirm each were inserted correctly. 
-
-
-```python
-
-```
 
 ## Querying and Filtering
 
@@ -152,11 +142,6 @@ update_birthdays(names_list, birthdays_list)
 ```
 
 Now, write a query to check your work and see that the birthdays were added correctly.
-
-
-```python
-
-```
 
 Great! It looks like the birthdays have been successfully added to every record correctly!
 
