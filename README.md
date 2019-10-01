@@ -19,6 +19,11 @@ To begin this lab, make sure that you start up the mongoDB server in your termin
 
 In the cell below, import the appropriate library and connect to the mongoDB server. Create a new database called `'lab_db'`.
 
+
+```python
+
+```
+
 ## Creating a Collection
 
 Now, create a collection called `'lab_collection'` inside `'lab_db'`.
@@ -61,6 +66,11 @@ insertion_results = None
 
 Now, access the appropriate attribute from the results object returned from the insertion to see the unique IDs for each record inserted, so that we can confirm each were inserted correctly. 
 
+
+```python
+
+```
+
 ## Querying and Filtering
 
 In the cell below, return the name and email address for every customer record. Then, print every item from the query to show that it worked correctly. 
@@ -73,7 +83,7 @@ query_1 = None
 
 Great! Now, let's write a query that gets an individual record based on a stored key-value pair a document contains. 
 
-In the cell below, write a query to get the record for John Smith by using his name. Then, print the results of the query to demonstrate that it worked correctly.  
+In the cell below, write a query to get the record for `'John Smith'` by using his name. Then, print the results of the query to demonstrate that it worked correctly.  
 
 
 ```python
@@ -93,7 +103,7 @@ query_3 = None
 
 ## Updating a Record
 
-Now, let's update some records. In the cell below. set the mailing address for Steven S. to `'367 55th St., apt 2A'`.
+Now, let's update some records. In the cell below. set the mailing address for `'John Smith'` to `'367 55th St., apt 2A'`.
 
 
 ```python
@@ -102,11 +112,11 @@ update_1 = None
 
 ```
 
-Now, write a query to check that the update worked for this document in the cell below. 
+Now, write a query to check that the update worked for this document in the cell below:  
 
 
 ```python
-query_4 =None
+query_4 = None
 
 ```
 
@@ -142,6 +152,11 @@ update_birthdays(names_list, birthdays_list)
 ```
 
 Now, write a query to check your work and see that the birthdays were added correctly.
+
+
+```python
+
+```
 
 Great! It looks like the birthdays have been successfully added to every record correctly!
 
