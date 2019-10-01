@@ -21,6 +21,11 @@ In the cell below, import the appropriate library and connect to the mongoDB ser
 
 
 ```python
+
+```
+
+
+```python
 # __SOLUTION__ 
 import pymongo
 
@@ -92,6 +97,11 @@ Now, access the appropriate attribute from the results object returned from the 
 
 
 ```python
+
+```
+
+
+```python
 # __SOLUTION__ 
 insertion_results.inserted_ids
 ```
@@ -134,7 +144,7 @@ for item in query_1:
 
 Great! Now, let's write a query that gets an individual record based on a stored key-value pair a document contains. 
 
-In the cell below, write a query to get the record for John Smith by using his name. Then, print the results of the query to demonstrate that it worked correctly.  
+In the cell below, write a query to get the record for `'John Smith'` by using his name. Then, print the results of the query to demonstrate that it worked correctly.  
 
 
 ```python
@@ -177,7 +187,7 @@ for item in query_3:
 
 ## Updating a Record
 
-Now, let's update some records. In the cell below. set the mailing address for John Smith to `'367 55th St., apt 2A'`.
+Now, let's update some records. In the cell below. set the mailing address for `'John Smith'` to `'367 55th St., apt 2A'`.
 
 
 ```python
@@ -201,11 +211,11 @@ mycollection.update_one(record_to_update_1, update_1)
 
 
 
-Now, write a query to check that the update worked for this document in the cell below. 
+Now, write a query to check that the update worked for this document in the cell below:  
 
 
 ```python
-query_4 =None
+query_4 = None
 
 ```
 
@@ -263,13 +273,18 @@ def update_birthdays(names, birthdays):
         query = {'Name': name}
         update = {'$set': {'Birthday': birthday}}
         mycollection.update_one(query, update)
-        # alternative method is to create each update dictionary, store them all in a list, and then pass that 
+        # Alternative method is to create a dictionary for each person, store them all in a list, and then pass that 
         # list to update_many() at the end of the function. 
         
 update_birthdays(names_list, birthdays_list)
 ```
 
 Now, write a query to check your work and see that the birthdays were added correctly.
+
+
+```python
+
+```
 
 
 ```python
