@@ -177,7 +177,7 @@ for item in query_3:
 
 ## Updating a Record
 
-Now, let's update some records. In the cell below. set the mailing address for Steven S. to `'367 55th St., apt 2A'`.
+Now, let's update some records. In the cell below. set the mailing address for John Smith to `'367 55th St., apt 2A'`.
 
 
 ```python
