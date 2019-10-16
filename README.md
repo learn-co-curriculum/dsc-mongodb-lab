@@ -6,9 +6,12 @@
 In this lesson, we'll get some hands-on experience with MongoDB!
 
 ## Objectives
-You will be able to:
--  Use MongoDB, a popular NoSQL database
--  Create, Read, Update, and Delete Information in MongoDB
+You will be able to: 
+
+- Create a MongoDB database   
+- Insert data into a MongoDB database   
+- Read data from a MongoDB database   
+- Update data in a MongoDB database   
 
 ## Getting Started
 
