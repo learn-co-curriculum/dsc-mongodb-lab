@@ -1,4 +1,3 @@
-
 # MongoDB - Lab
 
 ## Introduction
@@ -19,21 +18,39 @@ To begin this lab, make sure that you start up the mongoDB server in your termin
 **You must do this lab locally on your computer.**
 
 
-## Connecting to the MongoDB Database
-
-In the cell below, import the appropriate library and connect to the mongoDB server. Create a new database called `'lab_db'`.
+## Connecting to the MongoDB Atlas Server
+In the cell below import copy and paste your MongoDB Atlas database URI and the path on your local computer to your TLS Certificate. Dont forget quotes!
 
 
 ```python
-
+uri = ""
+cert = ""
 ```
 
+Next, run the cell below to import the appropriate library to work with a MongoDB database in Python and define a function to connect to your MongoDB Atlas cluster.
+
 
 ```python
-# __SOLUTION__ 
 import pymongo
+from pymongo import MongoClient
 
-myclient = pymongo.MongoClient('mongodb://localhost:27017')
+def mongo_connect(uri, cert):
+    return MongoClient(uri,
+                     tls=True,
+                     tlsCertificateKeyFile=cert)
+```
+
+Next, run mongo_connect below to connect to MongoDB.
+
+
+```python
+myclient = mongo_connect(uri, cert)
+```
+
+Finally, we can define a new database lab_db.
+
+
+```python
 mydb = myclient['lab_db']
 ```
 
