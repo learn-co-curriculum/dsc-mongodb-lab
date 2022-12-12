@@ -1,4 +1,3 @@
-
 # MongoDB - Lab
 
 ## Introduction
@@ -15,19 +14,44 @@ You will be able to:
 
 ## Getting Started
 
-To begin this lab, make sure that you start up the mongoDB server in your terminal first!  
+To begin this lab, make sure that you have completed the lesson and code along to ensure that your MongoDB installation is ready for the lab.
+
 **You must do this lab locally on your computer.**
 
 
-## Connecting to the MongoDB Database
+## Connecting to the MongoDB Atlas Server
+1. In the cell below import copy and paste your MongoDB Atlas database URI and the path on your local computer to your TLS Certificate. Dont forget quotes!
 
-In the cell below, import the appropriate library and connect to the mongoDB server. Create a new database called `'lab_db'`.
+
+```python
+uri = ""
+cert = ""
+```
+
+2. Next, run the cell below to import the appropriate library to work with a MongoDB database in Python and define a function to connect to your MongoDB Atlas cluster.
 
 
 ```python
 import pymongo
+from pymongo import MongoClient
 
-myclient = pymongo.MongoClient('mongodb://localhost:27017')
+def mongo_connect(uri, cert):
+    return MongoClient(uri,
+                     tls=True,
+                     tlsCertificateKeyFile=cert)
+```
+
+3. Next, run `mongo_connect` below to connect to MongoDB.
+
+
+```python
+myclient = mongo_connect(uri, cert)
+```
+
+Finally, we can define a new database `lab_db`.
+
+
+```python
 mydb = myclient['lab_db']
 ```
 
@@ -81,11 +105,11 @@ insertion_results.inserted_ids
 
 
 
-    [ObjectId('5cab91e1f1210d35c8dbfd5f'),
-     ObjectId('5cab91e1f1210d35c8dbfd60'),
-     ObjectId('5cab91e1f1210d35c8dbfd61'),
-     ObjectId('5cab91e1f1210d35c8dbfd62'),
-     ObjectId('5cab91e1f1210d35c8dbfd63')]
+    [ObjectId('638a2be151dacfcf31d99557'),
+     ObjectId('638a2be151dacfcf31d99558'),
+     ObjectId('638a2be151dacfcf31d99559'),
+     ObjectId('638a2be151dacfcf31d9955a'),
+     ObjectId('638a2be151dacfcf31d9955b')]
 
 
 
@@ -100,11 +124,16 @@ for item in query_1:
     print(item)
 ```
 
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd5f'), 'Name': 'John Smith', 'Email': 'j.smith@thesmiths.com'}
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd60'), 'Name': 'Jane Smith', 'Email': 'jane_smith@thesmiths.com'}
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd61'), 'Name': 'Adam Enbar', 'Email': 'adam@theflatironschool.com'}
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd62'), 'Name': 'Avi Flombaum', 'Email': 'avi@theflatironschool.com'}
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd63'), 'Name': 'Steven S.', 'Email': 'steven.s@gmail.net'}
+    {'_id': ObjectId('638a2bb6995789d4a1a831f5'), 'Name': 'John Smith', 'Email': 'j.smith@thesmiths.com'}
+    {'_id': ObjectId('638a2bb6995789d4a1a831f6'), 'Name': 'Jane Smith', 'Email': 'jane_smith@thesmiths.com'}
+    {'_id': ObjectId('638a2bb6995789d4a1a831f7'), 'Name': 'Adam Enbar', 'Email': 'adam@theflatironschool.com'}
+    {'_id': ObjectId('638a2bb6995789d4a1a831f8'), 'Name': 'Avi Flombaum', 'Email': 'avi@theflatironschool.com'}
+    {'_id': ObjectId('638a2bb6995789d4a1a831f9'), 'Name': 'Steven S.', 'Email': 'steven.s@gmail.net'}
+    {'_id': ObjectId('638a2be151dacfcf31d99557'), 'Name': 'John Smith', 'Email': 'j.smith@thesmiths.com'}
+    {'_id': ObjectId('638a2be151dacfcf31d99558'), 'Name': 'Jane Smith', 'Email': 'jane_smith@thesmiths.com'}
+    {'_id': ObjectId('638a2be151dacfcf31d99559'), 'Name': 'Adam Enbar', 'Email': 'adam@theflatironschool.com'}
+    {'_id': ObjectId('638a2be151dacfcf31d9955a'), 'Name': 'Avi Flombaum', 'Email': 'avi@theflatironschool.com'}
+    {'_id': ObjectId('638a2be151dacfcf31d9955b'), 'Name': 'Steven S.', 'Email': 'steven.s@gmail.net'}
 
 
 Great! Now, let's write a query that gets an individual record based on a stored key-value pair a document contains. 
@@ -118,7 +147,8 @@ for item in query_2:
     print(item)
 ```
 
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd5f'), 'Name': 'John Smith', 'Email': 'j.smith@thesmiths.com', 'Mailing_Address': '123 mulberry lane', 'Balance': 0.0, 'Notes': 'Called technical support, issue not yet resolved.'}
+    {'_id': ObjectId('638a2bb6995789d4a1a831f5'), 'Name': 'John Smith', 'Email': 'j.smith@thesmiths.com', 'Mailing_Address': '367 55th St., apt 2A', 'Balance': 0.0, 'Notes': 'Called technical support, issue not yet resolved.', 'Birthday': '02/20/1986'}
+    {'_id': ObjectId('638a2be151dacfcf31d99557'), 'Name': 'John Smith', 'Email': 'j.smith@thesmiths.com', 'Mailing_Address': '123 mulberry lane', 'Balance': 0.0, 'Notes': 'Called technical support, issue not yet resolved.'}
 
 
 Great! Now, write a query to get the names, email addresses, and balances for customers that have a balance greater than 0. Use a modifier to do this. 
@@ -132,8 +162,10 @@ for item in query_3:
     print(item)
 ```
 
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd60'), 'Name': 'Jane Smith', 'Email': 'jane_smith@thesmiths.com', 'Balance': 25.0}
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd61'), 'Name': 'Adam Enbar', 'Email': 'adam@theflatironschool.com', 'Balance': 14.99}
+    {'_id': ObjectId('638a2bb6995789d4a1a831f6'), 'Name': 'Jane Smith', 'Email': 'jane_smith@thesmiths.com', 'Balance': 25.0}
+    {'_id': ObjectId('638a2bb6995789d4a1a831f7'), 'Name': 'Adam Enbar', 'Email': 'adam@theflatironschool.com', 'Balance': 14.99}
+    {'_id': ObjectId('638a2be151dacfcf31d99558'), 'Name': 'Jane Smith', 'Email': 'jane_smith@thesmiths.com', 'Balance': 25.0}
+    {'_id': ObjectId('638a2be151dacfcf31d99559'), 'Name': 'Adam Enbar', 'Email': 'adam@theflatironschool.com', 'Balance': 14.99}
 
 
 ## Updating a Record
@@ -150,7 +182,7 @@ mycollection.update_one(record_to_update_1, update_1)
 
 
 
-    <pymongo.results.UpdateResult at 0x15c44ddd248>
+    <pymongo.results.UpdateResult at 0x7fc498289af0>
 
 
 
@@ -163,7 +195,8 @@ for item in query_4:
     print(item)
 ```
 
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd5f'), 'Name': 'John Smith', 'Email': 'j.smith@thesmiths.com', 'Mailing_Address': '367 55th St., apt 2A', 'Balance': 0.0, 'Notes': 'Called technical support, issue not yet resolved.'}
+    {'_id': ObjectId('638a2bb6995789d4a1a831f5'), 'Name': 'John Smith', 'Email': 'j.smith@thesmiths.com', 'Mailing_Address': '367 55th St., apt 2A', 'Balance': 0.0, 'Notes': 'Called technical support, issue not yet resolved.', 'Birthday': '02/20/1986'}
+    {'_id': ObjectId('638a2be151dacfcf31d99557'), 'Name': 'John Smith', 'Email': 'j.smith@thesmiths.com', 'Mailing_Address': '123 mulberry lane', 'Balance': 0.0, 'Notes': 'Called technical support, issue not yet resolved.'}
 
 
 Now, let's assume that we want to add birthdays for each customer record. Consider the following table:
@@ -213,37 +246,63 @@ Now, write a query to check your work and see that the birthdays were added corr
 
 
 
-    [{'_id': ObjectId('5cab91e1f1210d35c8dbfd5f'),
+    [{'_id': ObjectId('638a2bb6995789d4a1a831f5'),
       'Name': 'John Smith',
       'Email': 'j.smith@thesmiths.com',
       'Mailing_Address': '367 55th St., apt 2A',
       'Balance': 0.0,
       'Notes': 'Called technical support, issue not yet resolved.',
       'Birthday': '02/20/1986'},
-     {'_id': ObjectId('5cab91e1f1210d35c8dbfd60'),
+     {'_id': ObjectId('638a2bb6995789d4a1a831f6'),
       'Name': 'Jane Smith',
       'Email': 'jane_smith@thesmiths.com',
       'Balance': 25.0,
       'Birthday': '07/07/1983'},
-     {'_id': ObjectId('5cab91e1f1210d35c8dbfd61'),
+     {'_id': ObjectId('638a2bb6995789d4a1a831f7'),
       'Name': 'Adam Enbar',
       'Email': 'adam@theflatironschool.com',
       'Mailing_Address': '11 Broadway',
       'Balance': 14.99,
       'Notes': 'Set up on recurring billing cycle.',
       'Birthday': '12/02/0982'},
-     {'_id': ObjectId('5cab91e1f1210d35c8dbfd62'),
+     {'_id': ObjectId('638a2bb6995789d4a1a831f8'),
       'Name': 'Avi Flombaum',
       'Email': 'avi@theflatironschool.com',
       'Mailing_Address': '11 Broadway',
       'Balance': 0.0,
       'Birthday': '04/17/1983'},
-     {'_id': ObjectId('5cab91e1f1210d35c8dbfd63'),
+     {'_id': ObjectId('638a2bb6995789d4a1a831f9'),
       'Name': 'Steven S.',
       'Email': 'steven.s@gmail.net',
       'Balance': -20.23,
       'Notes': 'Refunded for overpayment due to price match guarantee.',
-      'Birthday': '08/30/1991'}]
+      'Birthday': '08/30/1991'},
+     {'_id': ObjectId('638a2be151dacfcf31d99557'),
+      'Name': 'John Smith',
+      'Email': 'j.smith@thesmiths.com',
+      'Mailing_Address': '123 mulberry lane',
+      'Balance': 0.0,
+      'Notes': 'Called technical support, issue not yet resolved.'},
+     {'_id': ObjectId('638a2be151dacfcf31d99558'),
+      'Name': 'Jane Smith',
+      'Email': 'jane_smith@thesmiths.com',
+      'Balance': 25.0},
+     {'_id': ObjectId('638a2be151dacfcf31d99559'),
+      'Name': 'Adam Enbar',
+      'Email': 'adam@theflatironschool.com',
+      'Mailing_Address': '11 Broadway',
+      'Balance': 14.99,
+      'Notes': 'Set up on recurring billing cycle.'},
+     {'_id': ObjectId('638a2be151dacfcf31d9955a'),
+      'Name': 'Avi Flombaum',
+      'Email': 'avi@theflatironschool.com',
+      'Mailing_Address': '11 Broadway',
+      'Balance': 0.0},
+     {'_id': ObjectId('638a2be151dacfcf31d9955b'),
+      'Name': 'Steven S.',
+      'Email': 'steven.s@gmail.net',
+      'Balance': -20.23,
+      'Notes': 'Refunded for overpayment due to price match guarantee.'}]
 
 
 
