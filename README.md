@@ -127,17 +127,6 @@ Now, access the appropriate attribute from the results object returned from the 
 insertion_results.inserted_ids
 ```
 
-
-
-
-    [ObjectId('5cab91e1f1210d35c8dbfd5f'),
-     ObjectId('5cab91e1f1210d35c8dbfd60'),
-     ObjectId('5cab91e1f1210d35c8dbfd61'),
-     ObjectId('5cab91e1f1210d35c8dbfd62'),
-     ObjectId('5cab91e1f1210d35c8dbfd63')]
-
-
-
 ## Querying and Filtering
 
 In the cell below, return the name and email address for every customer record. Then, print every item from the query to show that it worked correctly. 
@@ -155,13 +144,6 @@ query_1 = mycollection.find({}, {'Name': 1, 'Email': 1})
 for item in query_1:
     print(item)
 ```
-
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd5f'), 'Name': 'John Smith', 'Email': 'j.smith@thesmiths.com'}
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd60'), 'Name': 'Jane Smith', 'Email': 'jane_smith@thesmiths.com'}
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd61'), 'Name': 'Adam Enbar', 'Email': 'adam@theflatironschool.com'}
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd62'), 'Name': 'Avi Flombaum', 'Email': 'avi@theflatironschool.com'}
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd63'), 'Name': 'Steven S.', 'Email': 'steven.s@gmail.net'}
-
 
 Great! Now, let's write a query that gets an individual record based on a stored key-value pair a document contains. 
 
@@ -181,9 +163,6 @@ for item in query_2:
     print(item)
 ```
 
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd5f'), 'Name': 'John Smith', 'Email': 'j.smith@thesmiths.com', 'Mailing_Address': '123 mulberry lane', 'Balance': 0.0, 'Notes': 'Called technical support, issue not yet resolved.'}
-
-
 Great! Now, write a query to get the names, email addresses, and balances for customers that have a balance greater than 0. Use a modifier to do this. 
 
 **_HINT_**: In the query below, you'll be passing in two separate dictionaries. The first one defines the logic of the query, while the second tells which fields we want returned. 
@@ -201,10 +180,6 @@ query_3 = mycollection.find({'Balance': {'$gt': 0}}, {'Name': 1, 'Email': 1, 'Ba
 for item in query_3:
     print(item)
 ```
-
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd60'), 'Name': 'Jane Smith', 'Email': 'jane_smith@thesmiths.com', 'Balance': 25.0}
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd61'), 'Name': 'Adam Enbar', 'Email': 'adam@theflatironschool.com', 'Balance': 14.99}
-
 
 ## Updating a Record
 
@@ -225,13 +200,6 @@ update_1 = {'$set': {'Mailing_Address': '367 55th St., apt 2A'}}
 mycollection.update_one(record_to_update_1, update_1)
 ```
 
-
-
-
-    <pymongo.results.UpdateResult at 0x15c44ddd248>
-
-
-
 Now, write a query to check that the update worked for this document in the cell below:  
 
 
@@ -247,9 +215,6 @@ query_4 = mycollection.find({'Name': 'John Smith'})
 for item in query_4:
     print(item)
 ```
-
-    {'_id': ObjectId('5cab91e1f1210d35c8dbfd5f'), 'Name': 'John Smith', 'Email': 'j.smith@thesmiths.com', 'Mailing_Address': '367 55th St., apt 2A', 'Balance': 0.0, 'Notes': 'Called technical support, issue not yet resolved.'}
-
 
 Now, let's assume that we want to add birthdays for each customer record. Consider the following table:
 
@@ -312,43 +277,6 @@ Now, write a query to check your work and see that the birthdays were added corr
 # __SOLUTION__ 
 [i for i in mycollection.find()]
 ```
-
-
-
-
-    [{'_id': ObjectId('5cab91e1f1210d35c8dbfd5f'),
-      'Name': 'John Smith',
-      'Email': 'j.smith@thesmiths.com',
-      'Mailing_Address': '367 55th St., apt 2A',
-      'Balance': 0.0,
-      'Notes': 'Called technical support, issue not yet resolved.',
-      'Birthday': '02/20/1986'},
-     {'_id': ObjectId('5cab91e1f1210d35c8dbfd60'),
-      'Name': 'Jane Smith',
-      'Email': 'jane_smith@thesmiths.com',
-      'Balance': 25.0,
-      'Birthday': '07/07/1983'},
-     {'_id': ObjectId('5cab91e1f1210d35c8dbfd61'),
-      'Name': 'Adam Enbar',
-      'Email': 'adam@theflatironschool.com',
-      'Mailing_Address': '11 Broadway',
-      'Balance': 14.99,
-      'Notes': 'Set up on recurring billing cycle.',
-      'Birthday': '12/02/0982'},
-     {'_id': ObjectId('5cab91e1f1210d35c8dbfd62'),
-      'Name': 'Avi Flombaum',
-      'Email': 'avi@theflatironschool.com',
-      'Mailing_Address': '11 Broadway',
-      'Balance': 0.0,
-      'Birthday': '04/17/1983'},
-     {'_id': ObjectId('5cab91e1f1210d35c8dbfd63'),
-      'Name': 'Steven S.',
-      'Email': 'steven.s@gmail.net',
-      'Balance': -20.23,
-      'Notes': 'Refunded for overpayment due to price match guarantee.',
-      'Birthday': '08/30/1991'}]
-
-
 
 Great! It looks like the birthdays have been successfully added to every record correctly!
 
