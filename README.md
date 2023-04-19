@@ -1,4 +1,3 @@
-
 # MongoDB - Lab
 
 ## Introduction
@@ -19,13 +18,40 @@ To begin this lab, make sure that you start up the mongoDB server in your termin
 **You must do this lab locally on your computer.**
 
 
-## Connecting to the MongoDB Database
-
-In the cell below, import the appropriate library and connect to the mongoDB server. Create a new database called `'lab_db'`.
+## Connecting to the MongoDB Atlas Server
+In the cell below import copy and paste your MongoDB Atlas database URI and the path on your local computer to your TLS Certificate. Dont forget quotes!
 
 
 ```python
+uri = ""
+cert = ""
+```
 
+Next, run the cell below to import the appropriate library to work with a MongoDB database in Python and define a function to connect to your MongoDB Atlas cluster.
+
+
+```python
+import pymongo
+from pymongo import MongoClient
+
+def mongo_connect(uri, cert):
+    return MongoClient(uri,
+                     tls=True,
+                     tlsCertificateKeyFile=cert)
+```
+
+Next, run mongo_connect below to connect to MongoDB.
+
+
+```python
+myclient = mongo_connect(uri, cert)
+```
+
+Finally, we can define a new database lab_db.
+
+
+```python
+mydb = myclient['lab_db']
 ```
 
 ## Creating a Collection
@@ -68,12 +94,14 @@ all_records = None
 insertion_results = None
 ```
 
+
 Now, access the appropriate attribute from the results object returned from the insertion to see the unique IDs for each record inserted, so that we can confirm each were inserted correctly. 
 
 
 ```python
 
 ```
+
 
 ## Querying and Filtering
 
@@ -95,6 +123,7 @@ query_2 = None
 
 ```
 
+
 Great! Now, write a query to get the names, email addresses, and balances for customers that have a balance greater than 0. Use a modifier to do this. 
 
 **_HINT_**: In the query below, you'll be passing in two separate dictionaries. The first one defines the logic of the query, while the second tells which fields we want returned. 
@@ -104,6 +133,7 @@ Great! Now, write a query to get the names, email addresses, and balances for cu
 query_3 = None
 
 ```
+
 
 ## Updating a Record
 
@@ -115,6 +145,7 @@ record_to_update_1 = None
 update_1 = None
 
 ```
+
 
 Now, write a query to check that the update worked for this document in the cell below:  
 
