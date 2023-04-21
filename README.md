@@ -4,6 +4,8 @@
 
 In this lesson, we'll get some hands-on experience with MongoDB!
 
+**Keep in Mind:** You will need to run this lab locally to securely connect to your MongoDB Atlas server. 
+
 ## Objectives
 You will be able to: 
 
